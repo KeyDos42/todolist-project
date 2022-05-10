@@ -5,3 +5,4 @@
 [2022-05-10 14:24:27] DB_USER not set in .env
 [2022-05-10 14:24:51] DB_USER not set in .env
 [2022-05-10 15:07:07] listen tcp :4040: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+[2022-05-10 17:42:59] listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.

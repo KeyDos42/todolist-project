@@ -27,9 +27,9 @@ func main() {
 		log.Fatal("PORT not set in .env")
 	}
 
-	fmt.Println("Starting application on the port 8080")
+	fmt.Println("Starting application on the port 4040")
 	fmt.Println("Please try another port if this one does not work ! in file .env in PORT=????")
-	fmt.Println("Start on 127.0.0.1:8080")
+	fmt.Println("Start on 127.0.0.1:4040")
 
 	err := http.ListenAndServe(":"+port, routes.Init())
 
