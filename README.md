@@ -9,4 +9,4 @@ Here is the visual rendering
 <li>Go installed</li>
 
 <h4><strong>run application</strong></h4>
-<li>go run main.go</li>
+<li>click on start.bat</li>
