@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TO-DO List</title>
+    <!-- Montserrat font embed -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,800" rel="stylesheet">
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="/styles/product.css">
+</head>
+
+
+<script>
+    ul = document.getElementById("myUL");
+    var cmp, taskElem;
+
+
+    function searchTaskInList() {
+        var searchField, filter, ul, taskElem, taskName, i, taskNameValue;
+        searchField = document.getElementById("search");
+        filter = searchField.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        taskElem = ul.getElementsByTagName("li");
+        for (i = 0; i < taskElem.length; i++) {
+            taskName = taskElem[i].getElementsByTagName("a")[0];
+            taskNameValue = taskName.textContent || taskName.innerText;
+
+            if (taskNameValue.toUpperCase().indexOf(filter) > -1) {
+                taskElem[i].style.display = "";
+            } else {
+                taskElem[i].style.display = "none";
+            }
+        }
+    }
+
+
+
+    /**
+     * For the default list
+    *
+    
+    var myNodelist = document.getElementsByTagName("li");
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+    
+        span.className = "close";
+        span.appendChild(txt);
+    
+        myNodelist[i].appendChild(span);
+    }
+    
+    */
+</script>
+
+<body>
+    <style>
+        body {
+            color: black;
+            background-color: rgb(0, 210, 238);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        hr {
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+            border-style: solid none;
+            border-width: 1px 0;
+            margin: 18px 0;
+        }
+
+        .title {
+            font-weight: bold;
+            margin-top: 2em;
+        }
+
+        .input-search {
+            background-color: white;
+            width: 90%;
+            font-size: 1.5em;
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            border-radius: none;
+            border-bottom: 1px solid black;
+        }
+
+        .input-search:focus-visible {
+            outline: none;
+            border-bottom: 1px solid rgb(75, 75, 75);
+        }
+
+
+        .div-search {
+            text-align: center;
+            border-radius: 15px;
+            width: 50%;
+            background-color: white;
+            padding-bottom: 1.75em;
+            padding-top: 1.75em;
+            margin-top: 5em;
+        }
+
+        .table {
+            margin-top: 5em;
+            padding-left: 5em;
+            padding-right: 5em;
+            padding-top: 2em;
+            padding-bottom: 2em;
+            background-color: white;
+            border: 1px solid black;
+            width: 50%;
+            border-radius: 15px;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 5px;
+            grid-auto-rows: minmax(20px, auto);
+        }
+
+        .one {
+            grid-column: 1 / 2;
+            grid-row: 1;
+        }
+
+        .two {
+            grid-column: 2 / 2;
+            grid-row: 1;
+        }
+
+        .myUl {
+            grid-row: 2;
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        li {
+            grid-row: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .align-left {
+            text-align: left;
+            padding-left: 1em;
+            font-weight: bold;
+        }
+
+        .mr-3 {
+            margin-top: 2em;
+        }
+
+        .table-two-elem {
+            grid-row: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .itemElem {
+            text-align: left;
+            padding-left: 2em;
+        }
+
+
+        .stateElem {
+            background-color: rgb(0, 210, 238);
+            text-align: center;
+            border-radius: 10px;
+            color: black;
+            height: 2.5em;
+            border: none;
+            grid-column-start: 1;
+        }
+
+        .icon {
+            cursor: pointer;
+            font-size: 2em;
+        }
+
+        .iconDisable {
+            cursor: no-drop;
+            background-color: azure;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-red {
+            background-color: #c12e2a;
+        }
+
+        .btn-green {
+            background-color: #419641;
+        }
+
+        .btn-yellow {
+            background-color: #eb9316;
+        }
+
+        .btn-blue {
+            background-color: #2aabd2;
+        }
+
+        .paddr-2 {
+            padding-right: 15px;
+        }
+    </style>
+    <center>
+        <h1 class="title">TO-DO List</h1>
+    </center>
+
+    <form action="/add" method="POST">
+        <center>
+            <div class="div-search">
+                <input size="50" name="item" id="search" class="input-search" type="text" placeholder="Recherche"
+                    onkeyup="searchTaskInList()" required="required">
+            </div>
+        </center>
+
+        <center>
+            <div class="table">
+                <div class="wrapper">
+                    <h4 class="one align-left">Tâche</h4>
+                    <h4 class="two align-left">Etat</h4>
+                </div>
+                <hr />
+                <div id="myUL" class="myUl">
+                    {{range .Todos}}
+                    {{if .Completed}}
+                    <li>
+                        <a class="itemElem">{{ .Item }}</a>
+                        <div class="table-two-elem">
+                            <input class="stateElem btn-green" disabled="true" value="Fait">
+                            <span class="iconDisable" aria-disabled="true">&#x1F589;</span>
+                            <span class="icon"><a href="/delete/{{ .Id}}">&#215;</a></span>
+                        </div>
+                    </li>
+                    {{else}}
+                    <li>
+                        <a class="itemElem">{{.Item}}</a>
+                        <div class="table-two-elem">
+                            {{ if .TodoElem }}
+                            <input disabled="true" value="A faire" class="stateElem btn-blue">
+                            <span class="icon"><a href="/progress/{{ .Id }}">&#x1F589;</a></span>
+                            {{ else }}
+                            {{ end }}
+
+                            {{ if .Late }}
+                            <input disabled="true" value="En retard" class="stateElem btn-red">
+                            <span class="icon"><a href="/do/{{ .Id }}">&#x1F589;</a></span>
+                            {{ else }}
+                            {{ end }}
+
+                            {{ if .Progress }}
+                            <input disabled="true" value="En cours" class="stateElem btn-yellow">
+                            <span class="icon"><a href="/complete/{{ .Id }}">&#x1F589;</a></span>
+                            {{ else }}
+                            {{ end }}
+                            <span class="icon"><a href="/delete/{{ .Id}}">&#215;</a></span>
+
+                        </div>
+                    </li>
+                    {{end}}
+                    {{end}}
+
+                </div>
+
+                <div class="align-left mr-3">
+                    <button type="submit" class="btn align-left"><i class="fa fa-plus icon paddr-2"></i>Ajouter une
+                        tâche</button>
+                </div>
+            </div>
+        </center>
+    </form>
+
+
+
+
+
+    <!-- Modif montserrat 
+        <h1 class="title text-center">{{.PageTitle}}</h1>
+-->
+    <!-- Search form -->
+
+
+
+
+</body>
+<!-- <script src="static/js/main.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+</html>

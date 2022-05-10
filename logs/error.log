@@ -1,0 +1,6 @@
+[2022-05-10 01:15:56] DB_USER not set in .env
+[2022-05-10 01:19:14] DB_USER not set in .env
+[2022-05-10 01:20:48] listen tcp :3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+[2022-05-10 02:29:08] listen tcp :3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+[2022-05-10 02:29:59] listen tcp :3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+[2022-05-10 12:36:48] listen tcp :4040: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
