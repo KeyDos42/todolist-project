@@ -1,8 +1,9 @@
 package routes
 
 import (
+	"project1/controllers"
+
 	"github.com/gorilla/mux"
-	"github.com/ichtrojan/go-todo/controllers"
 )
 
 func Init() *mux.Router {

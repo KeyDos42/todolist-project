@@ -4,21 +4,23 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"project1/models"
+
+	"project1/config"
 
 	"github.com/gorilla/mux"
-	"github.com/ichtrojan/go-todo/config"
-	"github.com/ichtrojan/go-todo/models"
 )
 
 var (
-	id        int
-	item      string
-	completed int
-	progress  int
-	late      int
-	todoElem  int
-	view      = template.Must(template.ParseFiles("templates/index.html"))
-	database  = config.Database()
+	id               int
+	item             string
+	completed        int
+	progress         int
+	late             int
+	todoElem         int
+	view                 = template.Must(template.ParseFiles("templates/index.html"))
+	database             = config.Database()
+	movedPermanently int = 301
 )
 
 func Show(w http.ResponseWriter, r *http.Request) {
@@ -59,14 +61,18 @@ func Show(w http.ResponseWriter, r *http.Request) {
 func Add(w http.ResponseWriter, r *http.Request) {
 
 	item := r.FormValue("item")
-
+	/**
+	*
+	* For default value put late = 1
+	*
+	 */
 	_, err := database.Exec(`INSERT INTO todos (item, completed, progress, late, do) VALUE (?, 0, 0, 1, 0)`, item)
 
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/", movedPermanently)
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
@@ -79,7 +85,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/", movedPermanently)
 }
 
 func Complete(w http.ResponseWriter, r *http.Request) {
@@ -92,7 +98,7 @@ func Complete(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/", movedPermanently)
 }
 
 func InProgress(w http.ResponseWriter, r *http.Request) {
@@ -105,7 +111,7 @@ func InProgress(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/", movedPermanently)
 }
 
 func InDo(w http.ResponseWriter, r *http.Request) {
@@ -118,5 +124,5 @@ func InDo(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 
-	http.Redirect(w, r, "/", 301)
+	http.Redirect(w, r, "/", movedPermanently)
 }

@@ -13,9 +13,6 @@ import (
 )
 
 func main() {
-	styles := http.FileServer(http.Dir("./views/stylesheets"))
-	http.Handle("/styles/", http.StripPrefix("/styles/", styles))
-
 	logger, _ := thoth.Init("log")
 
 	if err := godotenv.Load(); err != nil {
@@ -30,7 +27,9 @@ func main() {
 		log.Fatal("PORT not set in .env")
 	}
 
-	fmt.Println("Starting application on the port 4040")
+	fmt.Println("Starting application on the port 8080")
+	fmt.Println("Please try another port if this one does not work ! in file .env in PORT=????")
+	fmt.Println("Start on 127.0.0.1:8080")
 
 	err := http.ListenAndServe(":"+port, routes.Init())
 
