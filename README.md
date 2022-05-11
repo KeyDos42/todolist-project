@@ -9,5 +9,5 @@ Here is the visual rendering
 <li>Go installed</li>
 
 <h4><strong>run application</strong></h4>
-<li>move folder in C:\Program Files\Go\src<li>
+<li>move folder in C:\Program Files\Go\src</li>
 <li>click on start.bat</li>
