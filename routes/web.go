@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"project1/controllers"
+	"todolist-project-master/controllers"
 
 	"github.com/gorilla/mux"
 )

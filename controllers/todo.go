@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
-	"project1/models"
+	"todolist-project-master/models"
 
-	"project1/config"
+	"todolist-project-master/config"
 
 	"github.com/gorilla/mux"
 )
